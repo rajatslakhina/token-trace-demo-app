@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "token-trace-kit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rajatslakhina/token-trace-kit.git",
+      "state" : {
+        "revision" : "bcf5faf36899b34e92d2a7cbcc7874725e6e3d67",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 2
+}
