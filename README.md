@@ -58,7 +58,7 @@ struct TokenTraceDemoApp: App {
 ## How to run it
 
 1. `git clone https://github.com/rajatslakhina/token-trace-demo-app.git`
-2. Open `Demo.xcodeproj` in Xcode 16 or later. Xcode resolves `token-trace-kit` from GitHub (`upToNextMajorVersion` from **1.0.0**).
+2. Open `Demo.xcodeproj` in Xcode 16 or later. Xcode resolves `token-trace-kit` from GitHub: the requirement is `upToNextMajorVersion` from **1.0.0**, and the committed `Package.resolved` locks it to the v1.0.0 commit.
 3. Select the **Demo** scheme and an iOS 17+ Simulator.
 4. Build & Run (⌘R) and tap **"Summarize note"**.
 
@@ -66,7 +66,9 @@ struct TokenTraceDemoApp: App {
 
 **Simulator: not run.** This run was unattended. Computer-use access to Xcode and Simulator was granted, but the screen already had someone else's work open: another Xcode workspace and a Simulator running a different app. Building and running here would have taken over that Simulator, so the run stopped before opening this project. The app builds for the iOS Simulator in CI (below), but **building is not the same as running**: nobody has watched it launch.
 
-**CI:** pending at the time of this commit; this line is replaced with the result.
+**CI ([Actions](https://github.com/rajatslakhina/token-trace-demo-app/actions)):** one `macos-15` job. It resolves `token-trace-kit` from GitHub against the committed `Package.resolved` (v1.0.0, commit `bcf5faf`), then builds the `Demo` scheme for `generic/platform=iOS Simulator` with code signing off. Every run of this job so far has passed, including the run on the commit that added this `Package.resolved` and README. That proves the remote package resolves and the app compiles against it. It does not prove the app launches.
+
+**What else was checked:** the library behind it has 83 passing tests (Linux) and a green CI on both Linux and macOS, including an iOS Simulator build. Each "What to try" row above was traced through the view and the lab code by an independent reviewer, but not watched on a device.
 
 ## License
 
